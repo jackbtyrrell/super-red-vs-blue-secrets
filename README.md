@@ -13,7 +13,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 | Freeze Ray | Found on the secret item wall |
 | Icy Rifle | Found on the secret item wall |
 | Boxing Gloves | Found on the secret item wall |
-| Zeus Lightning Bolt | Hit it with the Lightning Bolt from the vault |
+| Zeus Lightning Bolt | Grab the Zeus Lightning Bolt from the vault, go to your base, and hit the one on the secret item wall with it |
 | Gobbler SMG | Code: `112725` |
 | Ban Hammer | Enter code `386786`, then there's a random chance you get sent to the Insane Asylum — press the button immediately and if you're lucky you'll get the Ban Hammer |
 | Slurp Rifle | Get down to 1 health, then go to the healing water at the top of your base on the side — use ONLY the healing water (no other heals) to get to full health and full shield to unlock it |
