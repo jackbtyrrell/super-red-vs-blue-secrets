@@ -16,6 +16,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 | Zeus Lightning Bolt | Hit it with the Lightning Bolt from the vault |
 | Gobbler SMG | Code: `112725` |
 | Ban Hammer | Enter code `386786`, then there's a random chance you get sent to the Insane Asylum — press the button immediately and if you're lucky you'll get the Ban Hammer |
+| Slurp Rifle | Get down to 1 health, then go to the healing water at the top of your base on the side — use ONLY the healing water (no other heals) to get to full health and full shield to unlock it |
 | Triple Pump | Hit the Triple Pump box on the secret item wall for a streak of 5 days in a row to unlock it |
 | Double Pump | Grab the OG Pump Shotgun and hit the big shotgun at the top of the shotguns section |
 | Hidden Shotgun (1M ammo) | Hidden location in the map |
