@@ -4,93 +4,313 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Red vs Blue - Secret Items Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Burtons&family=Russo+One&family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Press+Start+2P&display=swap');
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #0a0a1a;
+            font-family: 'Segoe UI', sans-serif;
+            background: #0b0b2a;
             color: #e0e0e0;
             min-height: 100vh;
+            overflow-x: hidden;
         }
+
+        /* Animated storm background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(0, 80, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(255, 0, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 0%, rgba(128, 0, 255, 0.2) 0%, transparent 60%);
+            z-index: -2;
+            animation: stormPulse 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes stormPulse {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: floatUp linear infinite;
+        }
+        .particle:nth-child(odd) { background: rgba(255, 50, 50, 0.4); }
+        .particle:nth-child(even) { background: rgba(50, 100, 255, 0.4); }
+        .particle:nth-child(1) { left: 10%; animation-duration: 12s; animation-delay: 0s; width: 3px; height: 3px; }
+        .particle:nth-child(2) { left: 25%; animation-duration: 9s; animation-delay: 2s; width: 5px; height: 5px; }
+        .particle:nth-child(3) { left: 40%; animation-duration: 15s; animation-delay: 1s; }
+        .particle:nth-child(4) { left: 55%; animation-duration: 10s; animation-delay: 3s; width: 6px; height: 6px; }
+        .particle:nth-child(5) { left: 70%; animation-duration: 11s; animation-delay: 0.5s; }
+        .particle:nth-child(6) { left: 85%; animation-duration: 14s; animation-delay: 4s; width: 3px; height: 3px; }
+        .particle:nth-child(7) { left: 15%; animation-duration: 13s; animation-delay: 2.5s; width: 5px; height: 5px; }
+        .particle:nth-child(8) { left: 60%; animation-duration: 8s; animation-delay: 1.5s; }
+        .particle:nth-child(9) { left: 35%; animation-duration: 16s; animation-delay: 3.5s; width: 4px; height: 4px; }
+        .particle:nth-child(10) { left: 90%; animation-duration: 10s; animation-delay: 0.8s; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+
+        /* Header */
         header {
-            background: linear-gradient(135deg, #cc0000, #0044cc);
-            padding: 2rem;
+            position: relative;
+            background: linear-gradient(135deg, #cc0000 0%, #1a0033 40%, #0044cc 100%);
+            padding: 3rem 2rem;
             text-align: center;
+            border-bottom: 4px solid;
+            border-image: linear-gradient(90deg, #ff0000, #ffcc00, #0066ff) 1;
+            overflow: hidden;
         }
-        header h1 { font-size: 2rem; color: #fff; }
-        header p { color: #ddd; margin-top: 0.5rem; }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; right: -50%; bottom: -50%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.03), transparent, rgba(255,255,255,0.03), transparent);
+            animation: rotateBg 20s linear infinite;
+        }
+        @keyframes rotateBg {
+            100% { transform: rotate(360deg); }
+        }
+        header * { position: relative; z-index: 1; }
+
+        header h1 {
+            font-family: 'Russo One', sans-serif;
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 50, 50, 0.6), 0 0 40px rgba(50, 50, 255, 0.4), 2px 2px 0 #000;
+            letter-spacing: 3px;
+        }
+        .red { color: #ff3333; }
+        .blue { color: #3388ff; }
+        .vs { color: #ffcc00; font-size: 2rem; }
+
+        header p {
+            color: #ccc;
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 2px #000;
+        }
+        .subtitle {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.7rem;
+            color: #ffcc00;
+            margin-top: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: glitch 3s infinite;
+        }
+        @keyframes glitch {
+            0%, 90%, 100% { opacity: 1; transform: translateX(0); }
+            92% { opacity: 0.8; transform: translateX(-2px); color: #ff0000; }
+            94% { opacity: 0.8; transform: translateX(2px); color: #0066ff; }
+            96% { opacity: 1; transform: translateX(0); }
+        }
+
         .map-code {
             display: inline-block;
-            background: rgba(0,0,0,0.4);
-            padding: 0.4rem 1rem;
-            border-radius: 6px;
-            margin-top: 0.8rem;
-            font-family: monospace;
-            font-size: 1.1rem;
-            color: #fff;
+            background: rgba(0,0,0,0.6);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-family: 'Russo One', monospace;
+            font-size: 1.2rem;
+            color: #ffcc00;
+            border: 2px solid rgba(255, 204, 0, 0.4);
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+            animation: codePulse 2s ease-in-out infinite alternate;
         }
-        main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-        section { margin-bottom: 2rem; }
+        @keyframes codePulse {
+            0% { border-color: rgba(255, 204, 0, 0.3); box-shadow: 0 0 10px rgba(255, 204, 0, 0.1); }
+            100% { border-color: rgba(255, 204, 0, 0.8); box-shadow: 0 0 20px rgba(255, 204, 0, 0.3); }
+        }
+
+        /* Main content */
+        main { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
+
+        section {
+            margin-bottom: 2.5rem;
+            background: rgba(10, 10, 40, 0.6);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
         h2 {
-            font-size: 1.4rem;
+            font-family: 'Russo One', sans-serif;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
-            padding-bottom: 0.4rem;
-            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, #ff3333, transparent) 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+
+        /* Weapons table */
         table { width: 100%; border-collapse: collapse; }
         th, td {
             text-align: left;
-            padding: 0.6rem 0.8rem;
-            border-bottom: 1px solid #222;
+            padding: 0.8rem 1rem;
         }
-        th { color: #aaa; font-size: 0.85rem; text-transform: uppercase; }
-        .card {
-            background: #141428;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 0.8rem;
+        th {
+            color: #ffcc00;
+            font-family: 'Russo One', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid rgba(255, 204, 0, 0.3);
         }
-        .card h3 { color: #fff; margin-bottom: 0.3rem; }
-        .card p { color: #aaa; font-size: 0.9rem; }
-        .note {
-            background: #1a1a30;
-            border-left: 3px solid #ffcc00;
-            padding: 1rem;
+        tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background 0.2s;
+        }
+        tr:hover { background: rgba(255, 255, 255, 0.03); }
+        td:first-child {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        td:last-child { color: #aaa; }
+        td strong {
+            color: #ffcc00;
+            font-family: 'Russo One', monospace;
+            background: rgba(255, 204, 0, 0.1);
+            padding: 2px 6px;
             border-radius: 4px;
+        }
+
+        /* Rarity colors for weapon names */
+        tr:nth-child(2) td:first-child { color: #ff8c00; } /* Legendary orange */
+        tr:nth-child(3) td:first-child { color: #c850c0; } /* Epic purple */
+        tr:nth-child(4) td:first-child { color: #00bfff; } /* Rare blue */
+        tr:nth-child(5) td:first-child { color: #00bfff; }
+        tr:nth-child(6) td:first-child { color: #30d050; } /* Uncommon green */
+        tr:nth-child(7) td:first-child { color: #ff8c00; }
+        tr:nth-child(8) td:first-child { color: #ff8c00; }
+        tr:nth-child(9) td:first-child { color: #c850c0; }
+        tr:nth-child(10) td:first-child { color: #00bfff; }
+        tr:nth-child(11) td:first-child { color: #c850c0; }
+        tr:nth-child(12) td:first-child { color: #ff8c00; }
+        tr:nth-child(13) td:first-child { color: #30d050; }
+
+        /* Vault cards */
+        .card {
+            background: linear-gradient(135deg, rgba(20, 20, 60, 0.8), rgba(30, 10, 50, 0.8));
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 0.8rem;
+            border: 1px solid rgba(255, 204, 0, 0.15);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            transform: translateX(5px);
+            border-color: rgba(255, 204, 0, 0.5);
+        }
+        .card h3 {
+            color: #ffcc00;
+            font-family: 'Russo One', sans-serif;
+            margin-bottom: 0.3rem;
+        }
+        .card p { color: #aaa; font-size: 0.95rem; }
+
+        .note {
+            background: rgba(255, 204, 0, 0.05);
+            border-left: 4px solid #ffcc00;
+            padding: 1rem;
+            border-radius: 6px;
             color: #ccc;
             font-size: 0.9rem;
+            margin-top: 0.8rem;
         }
+
+        /* Lists */
         ul { list-style: none; }
         ul li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #1a1a2e;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: padding-left 0.2s;
         }
+        ul li:hover { padding-left: 8px; }
         ul li::before {
-            content: ">";
-            color: #cc0000;
-            font-weight: bold;
-            margin-right: 0.5rem;
+            content: "\25B6";
+            color: #ff3333;
+            font-size: 0.7rem;
+            margin-right: 0.6rem;
         }
+        ul li strong { color: #fff; }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 2rem;
             color: #555;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
-        a { color: #6699ff; }
+        a {
+            color: #6699ff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover { color: #ffcc00; }
+
+        /* Battle Bus divider */
+        .divider {
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 1.5rem;
+            opacity: 0.3;
+            letter-spacing: 20px;
+        }
     </style>
 </head>
 <body>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
     <header>
-        <h1>Super Red vs Blue</h1>
+        <h1><span class="red">SUPER RED</span> <span class="vs">VS</span> <span class="blue">BLUE</span></h1>
         <p>Secret Items Guide - Typical Gamer's Fortnite Map</p>
-        <div class="map-code">Map Code: 2786-2114-8349</div>
+        <div class="subtitle">// CLASSIFIED INTEL //</div>
+        <div class="map-code">MAP CODE: 2786-2114-8349</div>
     </header>
     <main>
         <section>
             <h2>Secret Weapons (Item Wall)</h2>
             <table>
-                <tr><th>Weapon</th><th>Details</th></tr>
+                <tr><th>Weapon</th><th>How to Unlock</th></tr>
                 <tr><td>Firework Shotgun</td><td>Secret item wall</td></tr>
                 <tr><td>Treecapper</td><td>Secret item wall</td></tr>
                 <tr><td>Freeze Ray</td><td>Secret item wall</td></tr>
@@ -98,13 +318,15 @@
                 <tr><td>Boxing Gloves</td><td>Secret item wall</td></tr>
                 <tr><td>Zeus Lightning Bolt</td><td>Hit it with the Lightning Bolt from the vault</td></tr>
                 <tr><td>Gobbler SMG</td><td>Code: <strong>112725</strong></td></tr>
-                <tr><td>Ban Hammer</td><td>Enter code <strong>386786</strong>, then there's a random chance you get sent to the Insane Asylum — press the button immediately and if you're lucky you'll get the Ban Hammer</td></tr>
+                <tr><td>Ban Hammer</td><td>Enter code <strong>386786</strong>, then there's a random chance you get sent to the Insane Asylum &mdash; press the button immediately and if you're lucky you'll get the Ban Hammer</td></tr>
                 <tr><td>Slurp Rifle</td><td>Get down to 1 health, then use ONLY the healing water at the top of your base (no other heals) to reach full health and full shield</td></tr>
                 <tr><td>Triple Pump</td><td>Hit the Triple Pump box on the secret item wall for a streak of 5 days in a row</td></tr>
                 <tr><td>Double Pump</td><td>Grab the OG Pump Shotgun and hit the big shotgun at the top of the shotguns section</td></tr>
                 <tr><td>Hidden Shotgun (1M ammo)</td><td>Hidden location in map</td></tr>
             </table>
         </section>
+
+        <div class="divider">- - -</div>
 
         <section>
             <h2>Secret Vaults</h2>
@@ -122,6 +344,8 @@
             </div>
             <div class="note">Vault codes are frequently changed by the map creator. Check TikTok and YouTube Shorts for the latest codes.</div>
         </section>
+
+        <div class="divider">- - -</div>
 
         <section>
             <h2>Secret Areas</h2>
