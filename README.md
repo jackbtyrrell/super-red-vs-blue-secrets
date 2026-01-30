@@ -14,6 +14,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 | Icy Rifle | Found on the secret item wall |
 | Boxing Gloves | Found on the secret item wall |
 | Zeus Lightning Bolt | Found on the secret item wall |
+| Gobbler SMG | Code: `112725` |
 | Hidden Shotgun (1M ammo) | Hidden location in the map |
 
 ## Secret Vaults
