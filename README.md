@@ -15,6 +15,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 | Boxing Gloves | Found on the secret item wall |
 | Zeus Lightning Bolt | Hit it with the Lightning Bolt from the vault |
 | Gobbler SMG | Code: `112725` |
+| Ban Hammer | Enter code `386786`, then there's a random chance you get sent to the Insane Asylum — press the button immediately and if you're lucky you'll get the Ban Hammer |
 | Double Pump | Grab the OG Pump Shotgun and hit the big shotgun at the top of the shotguns section |
 | Hidden Shotgun (1M ammo) | Hidden location in the map |
 
