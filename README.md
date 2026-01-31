@@ -8,7 +8,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 
 | Weapon | How to Unlock |
 |--------|---------------|
-| Firework Shotgun | Found on the secret item wall |
+| Firework Shotgun | Grab the Modular Combat Shotgun, go to the top of your base, hit the Rocket Launcher with it, then hit the disco ball |
 | Treecapper | Enter code `127633`, then start pickaxing a tree |
 | Freeze Ray | Found on the secret item wall |
 | Icy Rifle | Enter code `122525`, then get through both tunnels in the map before the icy feet run out |
