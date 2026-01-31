@@ -20,6 +20,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 | Triple Pump | Hit the Triple Pump box on the secret item wall for a streak of 5 days in a row to unlock it |
 | Double Pump | Grab the OG Pump Shotgun and hit the big shotgun at the top of the shotguns section |
 | Boyah Pistol | Code: `483920` |
+| RVB Minigun | Code: `671767` |
 | Hidden Shotgun (1M ammo) | Hidden location in the map |
 
 ## Secret Vaults
