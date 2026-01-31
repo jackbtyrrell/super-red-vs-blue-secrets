@@ -22,7 +22,6 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 | Boyah Pistol | Code: `483920` |
 | RVB Minigun | Code: `671767` |
 | Galaxy Dub Shotgun | Grab the Flint Knock Pistol, go to the underground tunnel in your base, hit the white gun on the wall going up with the Flint Knock Pistol, grab The Dub, then make your way to the top — you know what to do |
-| Hidden Shotgun (1M ammo) | Hidden location in the map |
 
 ## Secret Vaults
 
