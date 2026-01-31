@@ -9,7 +9,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 | Weapon | How to Unlock |
 |--------|---------------|
 | Firework Shotgun | Found on the secret item wall |
-| Treecapper | Found on the secret item wall |
+| Treecapper | Enter code `127633`, then start pickaxing a tree |
 | Freeze Ray | Found on the secret item wall |
 | Icy Rifle | Found on the secret item wall |
 | Boxing Gloves | Get the Boxing Gloves from the vault, hit the GOJO button in your base, fight a friend — the winner gets the Boxing Gloves |
