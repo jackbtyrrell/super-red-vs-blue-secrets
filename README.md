@@ -19,6 +19,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 | Slurp Rifle | Get down to 1 health, then go to the healing water at the top of your base on the side — use ONLY the healing water (no other heals) to get to full health and full shield to unlock it |
 | Triple Pump | Hit the Triple Pump box on the secret item wall for a streak of 5 days in a row to unlock it |
 | Double Pump | Grab the OG Pump Shotgun and hit the big shotgun at the top of the shotguns section |
+| Boyah Pistol | Code: `483920` |
 | Hidden Shotgun (1M ammo) | Hidden location in the map |
 
 ## Secret Vaults
