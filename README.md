@@ -12,7 +12,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 | Treecapper | Found on the secret item wall |
 | Freeze Ray | Found on the secret item wall |
 | Icy Rifle | Found on the secret item wall |
-| Boxing Gloves | Found on the secret item wall |
+| Boxing Gloves | Get the Boxing Gloves from the vault, hit the GOJO button in your base, fight a friend — the winner gets the Boxing Gloves |
 | Zeus Lightning Bolt | Grab the Zeus Lightning Bolt from the vault, go to your base, and hit the one on the secret item wall with it |
 | Gobbler SMG | Code: `112725` |
 | Ban Hammer | Enter code `386786`, then there's a random chance you get sent to the Insane Asylum — press the button immediately and if you're lucky you'll get the Ban Hammer |
