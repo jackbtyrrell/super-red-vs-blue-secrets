@@ -22,6 +22,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 | Boyah Pistol | Code: `483920` |
 | RVB Minigun | Code: `671767` |
 | Galaxy Dub Shotgun | Grab the Flint Knock Pistol, go to the underground tunnel in your base, hit the white gun on the wall going up with the Flint Knock Pistol, grab The Dub, then make your way to the top — you know what to do |
+| Mythic Goldfish | Grab a Jetpack, go to the jump pad on the side of the map, use the Jetpack to get to the second block up, land on the rift pad — you know what to do next |
 
 ## Secret Vaults
 
