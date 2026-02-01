@@ -595,7 +595,7 @@
     const c = document.getElementById('flappy');
     const ctx = c.getContext('2d');
     const W = 220, H = 300;
-    let birdY = 120, birdV = 0, gravity = 0.25, flapStr = -4.5;
+    let birdY = 120, birdV = 0, gravity = 0.15, flapStr = -4;
     let pipes = [], pipeW = 35, gap = 90, pipeSpeed = 1.2;
     let frame = 0, score = 0, gameOver = false;
 
@@ -618,7 +618,7 @@
         birdV += gravity;
         birdY += birdV;
         if (birdY < 0) birdY = 0;
-        if (birdY > H - 10) { gameOver = true; }
+        if (birdY > H - 10) { birdY = H - 10; birdV = 0; }
 
         frame++;
         if (frame % 120 === 0) spawnPipe();
