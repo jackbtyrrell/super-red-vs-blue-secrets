@@ -10,7 +10,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 |--------|---------------|
 | Firework Shotgun | Grab the Modular Combat Shotgun, go to the top of your base, hit the Rocket Launcher with it, then hit the disco ball |
 | Treecapper | Enter code `127633`, then start pickaxing a tree |
-| Freeze Ray | Found on the secret item wall |
+| Freeze Ray | Grab the Kymera Ray, go to the top of the map on the side, press the diamond key button, then hit the chest with it to unlock it |
 | Icy Rifle | Enter code `122525`, then get through both tunnels in the map before the icy feet run out |
 | Boxing Gloves | Get the Boxing Gloves from the vault, hit the GOJO button in your base, fight a friend — the winner gets the Boxing Gloves |
 | Zeus Lightning Bolt | Grab the Zeus Lightning Bolt from the vault, go to your base, and hit the one on the secret item wall with it |
