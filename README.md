@@ -22,6 +22,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 | Boyah Pistol | Code: `483920` |
 | RVB Minigun | Code: `671767` |
 | Galaxy Dub Shotgun | Grab the Flint Knock Pistol, go to the underground tunnel in your base, hit the white gun on the wall going up with the Flint Knock Pistol, grab The Dub, then make your way to the top — you know what to do |
+| Fire Sword | Go to the side of the map that is NOT the vault side, use a Jetpack or hurdle three blocks high — make sure you are in between the red and the blue, then hurdle three blocks high and you should see the sword |
 | Chains of Hades | Found in the last box on the second floor |
 | Inflate-A-Bull | Equip three balloons in the middle of the map, when you get high enough press the button |
 | Mythic Goldfish | Grab a Jetpack, go to the jump pad on the side of the map, use the Jetpack to get to the second block up, land on the rift pad — you know what to do next |
