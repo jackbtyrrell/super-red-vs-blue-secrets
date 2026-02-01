@@ -628,9 +628,8 @@
             pipes[i].x -= pipeSpeed;
             if (pipes[i].x + pipeW < 0) { pipes.splice(i, 1); score++; continue; }
             if (25 + 7 > pipes[i].x && 25 - 7 < pipes[i].x + pipeW) {
-                if (birdY + 5 - 7 < pipes[i].top || birdY + 5 + 7 > pipes[i].bottom) {
-                    if (birdY < H - 15) gameOver = true;
-                }
+                if (birdY + 5 - 7 < pipes[i].top) gameOver = true;
+                if (birdY + 5 + 7 > pipes[i].bottom && birdY < H - 20) gameOver = true;
             }
         }
     }
