@@ -470,6 +470,108 @@
                 <li><strong>Supply Drops</strong> - Super Vault and Supply Drops available</li>
             </ul>
         </section>
+        <div class="divider">- - -</div>
+
+        <section>
+            <h2>Fortnite Trivia Quiz</h2>
+            <div id="quiz">
+                <div id="quiz-question" style="font-size: 1.1rem; margin-bottom: 1rem; color: #fff;"></div>
+                <div id="quiz-options"></div>
+                <div id="quiz-result" style="margin-top: 1rem; font-weight: bold; font-size: 1.1rem;"></div>
+                <div id="quiz-score" style="margin-top: 0.5rem; color: #ffcc00; font-family: 'Russo One', sans-serif;"></div>
+                <button id="quiz-next" onclick="nextQuestion()" style="display:none; margin-top: 1rem; padding: 0.6rem 1.5rem; background: linear-gradient(135deg, #cc0000, #0044cc); color: #fff; border: none; border-radius: 8px; font-family: 'Russo One', sans-serif; font-size: 1rem; cursor: pointer;">Next Question</button>
+            </div>
+        </section>
+
+        <script>
+            const questions = [
+                { q: "What is the code to unlock the Gobbler SMG?", options: ["112725", "386786", "483920", "127633"], answer: 0 },
+                { q: "What do you need to grab first to unlock the Firework Shotgun?", options: ["Flint Knock Pistol", "OG Pump Shotgun", "Modular Combat Shotgun", "Kymera Ray"], answer: 2 },
+                { q: "How many days in a row do you need to hit the Triple Pump box?", options: ["3 days", "5 days", "7 days", "10 days"], answer: 1 },
+                { q: "What is the map code for Super Red vs Blue?", options: ["2786-2114-8349", "0535-8066-2253", "8665-0274-0812", "3435-0198-2193"], answer: 0 },
+                { q: "What do you need to get down to before using the healing water for the Slurp Rifle?", options: ["50 health", "25 health", "10 health", "1 health"], answer: 3 },
+                { q: "What button do you press to try to get the Ban Hammer?", options: ["The diamond key button", "The GOJO button", "The button in the Insane Asylum", "The disco ball"], answer: 2 },
+                { q: "What code unlocks the Treecapper?", options: ["671767", "122525", "127633", "483920"], answer: 2 },
+                { q: "What do you need to equip in the middle of the map for the Inflate-A-Bull?", options: ["A Jetpack", "Three balloons", "A grappler", "Icy feet"], answer: 1 },
+                { q: "Who made the Super Red vs Blue map?", options: ["Ninja", "MrBeast", "Typical Gamer", "iplaytobi"], answer: 2 },
+                { q: "What do you need to get first for the Golden Gun?", options: ["Zeus Lightning Bolt", "Tavern Keycard", "Flint Knock Pistol", "Kymera Ray"], answer: 1 },
+                { q: "What weapon do you grab from the vault to unlock the Zeus Lightning Bolt?", options: ["Fire Sword", "Chains of Hades", "Zeus Lightning Bolt", "Golden Gun"], answer: 2 },
+                { q: "How do you unlock the Double Pump?", options: ["Enter code 386786", "Hit the big shotgun with the OG Pump", "Use the healing water", "Press the GOJO button"], answer: 1 },
+                { q: "What code unlocks the Icy Rifle?", options: ["112725", "122525", "127633", "671767"], answer: 1 },
+                { q: "What must you get through before the icy feet run out for the Icy Rifle?", options: ["The vault", "The underground tunnel", "Both tunnels", "Three blocks high"], answer: 2 },
+                { q: "Where are the Chains of Hades found?", options: ["In the vault", "On the secret item wall", "In the last box on the second floor", "At the top of the map"], answer: 2 }
+            ];
+
+            let currentQ = 0;
+            let score = 0;
+            let answered = false;
+
+            function shuffle(arr) {
+                for (let i = arr.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [arr[i], arr[j]] = [arr[j], arr[i]];
+                }
+                return arr;
+            }
+
+            shuffle(questions);
+
+            function showQuestion() {
+                answered = false;
+                const qData = questions[currentQ];
+                document.getElementById('quiz-question').textContent = (currentQ + 1) + '. ' + qData.q;
+                document.getElementById('quiz-result').textContent = '';
+                document.getElementById('quiz-next').style.display = 'none';
+                const optDiv = document.getElementById('quiz-options');
+                optDiv.innerHTML = '';
+                qData.options.forEach((opt, i) => {
+                    const btn = document.createElement('button');
+                    btn.textContent = opt;
+                    btn.style.cssText = 'display:block; width:100%; padding:0.6rem 1rem; margin-bottom:0.5rem; background:rgba(255,255,255,0.05); color:#e0e0e0; border:1px solid rgba(255,255,255,0.1); border-radius:8px; font-size:1rem; cursor:pointer; text-align:left; transition: background 0.2s;';
+                    btn.onmouseover = () => { if (!answered) btn.style.background = 'rgba(255,255,255,0.1)'; };
+                    btn.onmouseout = () => { if (!answered) btn.style.background = 'rgba(255,255,255,0.05)'; };
+                    btn.onclick = () => checkAnswer(i, btn);
+                    optDiv.appendChild(btn);
+                });
+                document.getElementById('quiz-score').textContent = 'Score: ' + score + '/' + questions.length;
+            }
+
+            function checkAnswer(selected, btn) {
+                if (answered) return;
+                answered = true;
+                const correct = questions[currentQ].answer;
+                const buttons = document.getElementById('quiz-options').children;
+                for (let i = 0; i < buttons.length; i++) {
+                    if (i === correct) {
+                        buttons[i].style.background = 'rgba(0,200,0,0.3)';
+                        buttons[i].style.borderColor = '#00cc00';
+                    } else if (i === selected && selected !== correct) {
+                        buttons[i].style.background = 'rgba(200,0,0,0.3)';
+                        buttons[i].style.borderColor = '#cc0000';
+                    }
+                }
+                if (selected === correct) {
+                    score++;
+                    document.getElementById('quiz-result').innerHTML = '<span style="color:#00cc00;">Correct!</span>';
+                } else {
+                    document.getElementById('quiz-result').innerHTML = '<span style="color:#cc0000;">Wrong!</span> The answer was: ' + questions[currentQ].options[correct];
+                }
+                document.getElementById('quiz-score').textContent = 'Score: ' + score + '/' + questions.length;
+                if (currentQ < questions.length - 1) {
+                    document.getElementById('quiz-next').style.display = 'inline-block';
+                } else {
+                    document.getElementById('quiz-result').innerHTML += '<br><br><span style="color:#ffcc00; font-family:Russo One,sans-serif; font-size:1.3rem;">Final Score: ' + score + '/' + questions.length + '</span>';
+                    if (score === questions.length) document.getElementById('quiz-result').innerHTML += '<br><span style="color:#ffcc00;">PERFECT SCORE! You are a Super Red vs Blue master!</span>';
+                }
+            }
+
+            function nextQuestion() {
+                currentQ++;
+                showQuestion();
+            }
+
+            showQuestion();
+        </script>
     </main>
     <footer>
         <p style="margin-bottom: 1rem; color: #aaa;">Also check out: <strong style="color:#ffcc00;">ALL WEAPONS GUN GAME</strong> by iplaytobi — Map Code: <span style="font-family:'Russo One',monospace; color:#ffcc00;">0535-8066-2253</span></p>
