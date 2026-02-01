@@ -392,7 +392,9 @@
         <div class="particle"></div>
     </div>
 
-    <header>
+    <header style="position: relative;">
+        <canvas id="flappy" width="150" height="200" style="position: absolute; top: 10px; right: 10px; border: 2px solid rgba(255,204,0,0.4); border-radius: 8px; cursor: pointer; z-index: 10;" onclick="flap()"></canvas>
+        <div style="position: absolute; top: 215px; right: 10px; color: #ffcc00; font-family: 'Press Start 2P', monospace; font-size: 0.5rem; text-align: center; width: 150px; z-index: 10;">CLICK TO FLAP</div>
         <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-bottom: 1rem;">
             <img src="peely.jpg" alt="Peely" style="width: 120px; height: auto; border-radius: 12px; border: 3px solid rgba(255,204,0,0.6); box-shadow: 0 0 20px rgba(255,200,0,0.4);">
             <img src="channels4_profile.jpg" alt="Typical Gamer" style="width: 100px; height: 100px; border-radius: 50%; border: 3px solid rgba(255,204,0,0.6); box-shadow: 0 0 20px rgba(255,100,0,0.4);">
@@ -588,5 +590,96 @@
         <p style="font-family: 'Dancing Script', cursive; font-size: 1.4rem; color: #aaa; margin-bottom: 1rem;">by Jack</p>
         <p>Know a secret that's not listed? <a href="https://github.com/jackbtyrrell/super-red-vs-blue-secrets/issues">Open an issue</a> on GitHub.</p>
     </footer>
+<script>
+(function() {
+    const c = document.getElementById('flappy');
+    const ctx = c.getContext('2d');
+    const W = 150, H = 200;
+    let birdY = 80, birdV = 0, gravity = 0.35, flapStr = -5;
+    let pipes = [], pipeW = 30, gap = 60, pipeSpeed = 1.5;
+    let frame = 0, score = 0, gameOver = false;
+
+    function spawnPipe() {
+        let topH = 20 + Math.random() * (H - gap - 40);
+        pipes.push({ x: W, top: topH, bottom: topH + gap });
+    }
+    spawnPipe();
+
+    window.flap = function() {
+        if (gameOver) {
+            birdY = 80; birdV = 0; pipes = []; score = 0; frame = 0; gameOver = false;
+            spawnPipe();
+        }
+        birdV = flapStr;
+    };
+
+    function update() {
+        if (gameOver) return;
+        birdV += gravity;
+        birdY += birdV;
+        if (birdY < 0) birdY = 0;
+        if (birdY > H - 10) { gameOver = true; }
+
+        frame++;
+        if (frame % 90 === 0) spawnPipe();
+
+        for (let i = pipes.length - 1; i >= 0; i--) {
+            pipes[i].x -= pipeSpeed;
+            if (pipes[i].x + pipeW < 0) { pipes.splice(i, 1); score++; continue; }
+            if (20 + 10 > pipes[i].x && 20 < pipes[i].x + pipeW) {
+                if (birdY < pipes[i].top || birdY + 10 > pipes[i].bottom) gameOver = true;
+            }
+        }
+    }
+
+    function draw() {
+        ctx.fillStyle = '#1a1a3a';
+        ctx.fillRect(0, 0, W, H);
+
+        // Pipes
+        ctx.fillStyle = '#30d050';
+        for (let p of pipes) {
+            ctx.fillRect(p.x, 0, pipeW, p.top);
+            ctx.fillRect(p.x, p.bottom, pipeW, H - p.bottom);
+        }
+
+        // Bird (Peely yellow)
+        ctx.fillStyle = '#ffcc00';
+        ctx.beginPath();
+        ctx.arc(25, birdY + 5, 7, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#000';
+        ctx.beginPath();
+        ctx.arc(28, birdY + 3, 2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Score
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 14px Russo One, sans-serif';
+        ctx.fillText(score, 10, 20);
+
+        if (gameOver) {
+            ctx.fillStyle = 'rgba(0,0,0,0.5)';
+            ctx.fillRect(0, 0, W, H);
+            ctx.fillStyle = '#ff3333';
+            ctx.font = 'bold 16px Russo One, sans-serif';
+            ctx.fillText('GAME OVER', 20, 90);
+            ctx.fillStyle = '#ffcc00';
+            ctx.font = '12px Russo One, sans-serif';
+            ctx.fillText('Score: ' + score, 45, 115);
+            ctx.fillStyle = '#fff';
+            ctx.font = '10px sans-serif';
+            ctx.fillText('Click to restart', 35, 140);
+        }
+    }
+
+    function loop() {
+        update();
+        draw();
+        requestAnimationFrame(loop);
+    }
+    loop();
+})();
+</script>
 </body>
 </html>
