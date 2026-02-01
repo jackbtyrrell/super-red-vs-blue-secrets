@@ -600,7 +600,7 @@
     let frame = 0, score = 0, gameOver = false;
 
     function spawnPipe() {
-        let topH = 30 + Math.random() * (H - gap - 60);
+        let topH = 30 + Math.random() * (H - gap - 80);
         pipes.push({ x: W, top: topH, bottom: topH + gap });
     }
     spawnPipe();
@@ -626,8 +626,10 @@
         for (let i = pipes.length - 1; i >= 0; i--) {
             pipes[i].x -= pipeSpeed;
             if (pipes[i].x + pipeW < 0) { pipes.splice(i, 1); score++; continue; }
-            if (20 + 10 > pipes[i].x && 20 < pipes[i].x + pipeW) {
-                if (birdY < pipes[i].top || birdY + 10 > pipes[i].bottom) gameOver = true;
+            if (25 + 7 > pipes[i].x && 25 - 7 < pipes[i].x + pipeW) {
+                if (birdY + 5 - 7 < pipes[i].top || birdY + 5 + 7 > pipes[i].bottom) {
+                    if (birdY < H - 15) gameOver = true;
+                }
             }
         }
     }
