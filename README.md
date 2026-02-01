@@ -26,6 +26,7 @@ A guide to all known secret items and hidden features in **Typical Gamer's Super
 | Fire Sword | Go to the side of the map that is NOT the vault side, use a Jetpack or hurdle three blocks high — make sure you are in between the red and the blue, then hurdle three blocks high and you should see the sword |
 | Chains of Hades | Found in the last box on the second floor |
 | Inflate-A-Bull | Equip three balloons in the middle of the map, when you get high enough press the button |
+| Secret Shadow Rifle | Grab the base Scar, go to the power wheel and get Invisibility, then get the Catty Corner Keycard — with it in your inventory, get a kill with the Scar |
 | Mythic Goldfish | Grab a Jetpack, go to the jump pad on the side of the map, use the Jetpack to get to the second block up, land on the rift pad — you know what to do next |
 
 ## Secret Vaults
