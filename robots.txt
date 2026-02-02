@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jackbtyrrell.github.io/super-red-vs-blue-secrets/sitemap.xml
